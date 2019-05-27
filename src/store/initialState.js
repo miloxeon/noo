@@ -6,6 +6,6 @@ export default {
   keys: {
     // 'google': 'supersecretpassword'
   },
-  secret: 'hello',
-  domainInputActive: true
+  secret: '',
+  domainInputActive: false
 }
