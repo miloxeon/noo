@@ -1,24 +1,16 @@
 import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
-import { keccak512 } from 'js-sha3'
+import { connect, prevent, assoc, hash } from 'lib'
 
 import Input from 'ui/input'
 import Button from 'ui/button'
 import Center from 'ui/center'
 
-const hash = (domain, secret) => keccak512(domain + secret).slice(0, 20)
-
 const NewDomainInput = props => (
   <Fragment>
-    <Button
-      type='button'
-      onClick={ props.close }
-    >
+    <Button type='button' onClick={ props.close }>
       Close
     </Button>
-    <h2>
-      Add new domain
-    </h2>
+    <h2>Add new domain</h2>
     <form onSubmit={ props.commit }>
       <Input
         autoFocus
@@ -28,13 +20,10 @@ const NewDomainInput = props => (
         onChange={ props.edit }
       />
       <Center>
-        <Button>
-          Add
-        </Button>
+        <Button>Add</Button>
       </Center>
     </form>
   </Fragment>
-
 )
 
 NewDomainInput.displayName = 'NewDomainInput'
@@ -44,13 +33,9 @@ export default connect(
     value: state.ui.newDomain
   }),
   dispatch => ({
-    edit: e => dispatch({
-      type: 'editNewDomain', payload: e.target.value
-    }),
-    commit: e => { e.preventDefault(); dispatch({
-      type: 'commitNewDomain'
-    })},
-    close: () => dispatch({ type: 'closeNewDomain' })
+    edit: e => dispatch('editNewDomain', e.target.value),
+    commit: e => prevent(e, () => dispatch('commitNewDomain')),
+    close: () => dispatch('closeNewDomain')
   })
 )(NewDomainInput)
 
@@ -65,7 +50,5 @@ export const actions = {
     ui: { ...state.ui, newDomain: '' },
     domainInputActive: false
   }),
-  closeNewDomain: state => ({ ...state,
-    domainInputActive: false
-  })
+  closeNewDomain: state => assoc(state, 'domainInputActive', false)
 }
