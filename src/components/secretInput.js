@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
+import { connect, prevent } from 'lib'
 
 import Input from 'ui/input'
 import Button from 'ui/button'
@@ -8,9 +8,7 @@ import Faq from 'ui/faq'
 
 const SecretInput = props => (
   <Fragment>
-    <h2>
-      The secret
-    </h2>
+    <h2>The secret</h2>
     <p>
       Once you enter this, there'll be no way back.
     </p>
@@ -27,9 +25,7 @@ const SecretInput = props => (
         onChange={ props.edit }
       />
       <Center>
-        <Button>
-          Submit
-        </Button>
+        <Button>Submit</Button>
       </Center>
     </form>
     <Faq />
@@ -44,12 +40,8 @@ export default connect(
     secret: state.ui.secret
   }),
   dispatch => ({
-    edit: e => dispatch({
-      type: 'editSecret', payload: e.target.value
-    }),
-    commit: e => { e.preventDefault(); dispatch({
-      type: 'commitSecret'
-    })}
+    edit: e => dispatch('editSecret', e.target.value),
+    commit: e => prevent(e, () => dispatch('commitSecret'))
   })
 )(SecretInput)
 
