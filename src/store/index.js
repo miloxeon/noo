@@ -5,6 +5,7 @@ import { actions as app } from 'components/app'
 import { actions as logout } from 'components/logout'
 import { actions as secretInput } from 'components/secretInput'
 import { actions as newDomainInput } from 'components/newDomainInput'
+import { actions as domainList } from 'components/domainList'
 import root from 'store/actions'
 
 const actions = {
@@ -12,6 +13,7 @@ const actions = {
   ...logout,
   ...secretInput,
   ...newDomainInput,
+  ...domainList,
   ...root
 }
 

@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
+
+import Button from 'ui/button'
 
 const Domain = props => (
   <li style={{ lineHeight: '1.5' }}>
@@ -16,9 +18,18 @@ const Domain = props => (
 const wrap = (data, index) => <Domain { ...data } key={ index } />
 
 const DomainList = props => (
-  <ul>
-    { props.domains.map(wrap) }
-  </ul>
+  <Fragment>
+    <ul>
+      { props.domains.map(wrap) }
+    </ul>
+    <Button
+      autoFocus
+      type='button'
+      onClick={ props.activateDomainInput }
+    >
+      Add
+    </Button>
+  </Fragment>
 )
 
 DomainList.displayName = 'DomainList'
@@ -29,5 +40,14 @@ export default connect(
       name,
       password: state.keys[name]
     }))
+  }),
+  dispatch => ({
+    activateDomainInput: () => dispatch({ type: 'activateDomainInput' })
   })
 )(DomainList)
+
+export const actions = {
+  activateDomainInput: state => ({ ...state,
+    domainInputActive: true
+  })
+}
