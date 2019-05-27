@@ -13,12 +13,13 @@ const SecretInput = props => (
     <p>
       Once you enter this, there'll be no way back.
     </p>
-    <form>
+    <form onSubmit={ props.commit }>
       <Input
         required
         type='password'
         placeholder='keyboardcat'
-        { ...props }
+        value={ props.secret }
+        onChange={ props.edit }
       />
       <div style={{
         display: 'flex',
@@ -38,17 +39,24 @@ SecretInput.displayName = 'SecretInput'
 
 export default connect(
   state => ({
-    value: state.ui.secret
+    secret: state.ui.secret
   }),
   dispatch => ({
-    onChange: e => dispatch({
+    edit: e => dispatch({
       type: 'editSecret', payload: e.target.value
-    })
+    }),
+    commit: e => { e.preventDefault(); dispatch({
+      type: 'commitSecret'
+    })}
   })
 )(SecretInput)
 
 export const actions = {
-  editSecret: (state, secret) => {
-    return { ...state, ui: { ...state.ui, secret }}
-  }
+  editSecret: (state, secret) => ({ ...state,
+    ui: { ...state.ui, secret }
+  }),
+  commitSecret: state => ({ ...state,
+    secret: state.ui.secret,
+    ui: { ...state.ui, secret: undefined }
+  })
 }
