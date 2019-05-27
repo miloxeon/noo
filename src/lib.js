@@ -1,3 +1,4 @@
+import React from 'react'
 import { connect as originalConnect } from 'react-redux'
 import { keccak512 } from 'js-sha3'
 
@@ -32,5 +33,8 @@ export const prevent = (e, next) => {
   return next(e)
 }
 
-export const hash = (domain, secret) => 
+export const hash = (domain, secret) =>
   keccak512(domain + secret).slice(0, 20)
+
+export const index = Component => (data, i) =>
+  <Component { ...data } key={ i } />
