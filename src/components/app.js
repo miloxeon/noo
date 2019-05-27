@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { connect } from 'react-redux'
+import { isParsable, connect } from 'lib'
 
 import Logout from 'components/logout'
 import DomainList from 'components/domainList'
@@ -41,7 +41,7 @@ export default connect(
     secret: state.secret
   }),
   dispatch => ({
-    start: () => dispatch({ type: 'start' })
+    start: () => dispatch('start')
   })
 )(App)
 
