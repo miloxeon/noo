@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
-import { connect } from 'react-redux'
-import { pairs } from 'lib'
+import { pairs, assoc, connect } from 'lib'
 
 import Button from 'ui/button'
 
@@ -43,12 +42,10 @@ export default connect(
     domains: pairs(state.keys, 'name', 'password')
   }),
   dispatch => ({
-    activateDomainInput: () => dispatch({ type: 'activateDomainInput' })
+    activateDomainInput: () => dispatch('activateDomainInput')
   })
 )(DomainList)
 
 export const actions = {
-  activateDomainInput: state => ({ ...state,
-    domainInputActive: true
-  })
+  activateDomainInput: state => assoc(state, 'domainInputActive', true)
 }
