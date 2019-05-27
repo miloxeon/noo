@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 
-import Pad from 'ui/pad'
 import Input from 'ui/input'
 import Button from 'ui/button'
 import Center from 'ui/center'
 
 const SecretInput = props => (
-  <Pad>
+  <Fragment>
     <h2>
       The secret
     </h2>
@@ -42,7 +41,7 @@ const SecretInput = props => (
     <p>
       There is no way to acquire your secret from the password, so you are safe here.
     </p>
-  </Pad>
+  </Fragment>
 
 )
 

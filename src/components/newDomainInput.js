@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { keccak512 } from 'js-sha3'
 
-import Pad from 'ui/pad'
 import Input from 'ui/input'
 import Button from 'ui/button'
 import Center from 'ui/center'
@@ -10,7 +9,7 @@ import Center from 'ui/center'
 const hash = (domain, secret) => keccak512(domain + secret).slice(0, 16)
 
 const NewDomainInput = props => (
-  <Pad>
+  <Fragment>
     <Button
       type='button'
       onClick={ props.close }
@@ -34,7 +33,7 @@ const NewDomainInput = props => (
         </Button>
       </Center>
     </form>
-  </Pad>
+  </Fragment>
 
 )
 
