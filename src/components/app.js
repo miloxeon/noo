@@ -1,8 +1,10 @@
 import React from 'react'
 import Logout from 'components/logout'
+import SecretInput from 'components/secretInput'
 
 const App = props => (
   <div>
+    <SecretInput />
     <Logout />
   </div>
 )

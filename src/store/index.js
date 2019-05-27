@@ -3,11 +3,13 @@ import initialState from 'store/initialState'
 
 import { actions as app } from 'components/app'
 import { actions as logout } from 'components/logout'
+import { actions as secretInput } from 'components/secretInput'
 import root from 'store/actions'
 
 const actions = {
   ...app,
   ...logout,
+  ...secretInput,
   ...root
 }
 
