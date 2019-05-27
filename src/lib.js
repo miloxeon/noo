@@ -1,4 +1,5 @@
 import { connect as originalConnect } from 'react-redux'
+import { keccak512 } from 'js-sha3'
 
 export const pairs = (obj, key, value) =>
   Object.keys(obj).map(x => ({
@@ -25,3 +26,11 @@ export const isParsable = str => {
   }
   return true
 }
+
+export const prevent = (e, next) => {
+  e.preventDefault()
+  return next(e)
+}
+
+export const hash = (domain, secret) => 
+  keccak512(domain + secret).slice(0, 20)
