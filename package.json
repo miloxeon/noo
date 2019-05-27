@@ -20,7 +20,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://noo.js.org",
+  "homepage": "https://miloslav.website/noo",
   "browserslist": {
     "production": [
       ">0.2%",
