@@ -16,3 +16,12 @@ export const connect = (mstp, mdtp) => originalConnect(mstp,
     props
   )
 )
+
+export const isParsable = str => {
+  try {
+    JSON.parse(str)
+  } catch (e) {
+    return false
+  }
+  return true
+}
