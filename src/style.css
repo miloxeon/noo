@@ -13,6 +13,12 @@
     local('Tahoma');
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: 'system', sans-serif;
   font-size: 16px;
@@ -26,4 +32,8 @@ input,
 button,
 .interactive {
   cursor: pointer;
+}
+
+p {
+  margin: 1.24em 0;
 }
