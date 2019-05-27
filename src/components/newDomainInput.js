@@ -22,6 +22,7 @@ const NewDomainInput = props => (
     </h2>
     <form onSubmit={ props.commit }>
       <Input
+        autoFocus
         required
         placeholder='example.com'
         value={ props.value }

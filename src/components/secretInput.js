@@ -16,6 +16,7 @@ const SecretInput = props => (
     </p>
     <form onSubmit={ props.commit }>
       <Input
+        autoFocus
         required
         type='password'
         placeholder='keyboardcat'
