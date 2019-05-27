@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import initialState from 'store/initialState'
 
 import { actions as app } from 'components/app'
@@ -17,10 +17,26 @@ const actions = {
   ...root
 }
 
+const logger = store => next => action => {
+  const result = next(action)
+  const currentState = store.getState()
+  const persistedState = localStorage.getItem('noo')
+
+  if ((currentState === initialState) && Boolean(persistedState)) {
+    store.dispatch({ type: 'hydrate', payload: persistedState })
+  } else {
+    localStorage.setItem('noo', JSON.stringify(currentState))
+  }
+  return result
+}
+
 export default createStore(
   (state = initialState, { type, payload }) => {
     return actions[type] ? actions[type](state, payload) : state
   },
-  window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    applyMiddleware(logger),
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 )
