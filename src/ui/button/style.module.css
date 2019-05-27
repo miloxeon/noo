@@ -1,0 +1,26 @@
+.root {
+  background-color: white;
+  padding: 12px 24px;
+  border: 2px solid black;
+
+  will-change:
+    transform,
+    box-shadow;
+
+  transition:
+    transform var(--bias),
+    box-shadow var(--bias);
+}
+
+.root:hover,
+.root:focus {
+  outline: none;
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0 black;
+}
+
+.root:active {
+  outline: none;
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 black;
+}
