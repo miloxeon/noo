@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 
 import Logout from 'components/logout'
+import DomainList from 'components/domainList'
 import SecretInput from 'components/secretInput'
 import NewDomainInput from 'components/newDomainInput'
 
@@ -11,7 +12,12 @@ const App = props => {
     if (props.domainInputActive) {
       return <NewDomainInput />
     } else {
-      return <Logout />
+      return (
+        <Fragment>
+          <DomainList />
+          <Logout />
+        </Fragment>
+      )
     }
 
   } else {

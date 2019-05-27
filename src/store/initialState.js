@@ -1,9 +1,11 @@
 export default {
   ui: {
-    secret: ''
+    secret: '',
+    newDomain: ''
   },
   keys: {
     // 'google': 'supersecretpassword'
   },
-  secret: null
+  secret: 'hello',
+  domainInputActive: true
 }
