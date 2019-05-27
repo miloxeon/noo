@@ -47,16 +47,6 @@ export default connect(
 
 export const actions = {
   start: state => state,
-  hydrate: (state, payload) => {
-
-    let persistedState = {}
-
-    try {
-      persistedState = JSON.parse(payload)
-    } catch (e) {
-      return state
-    }
-
-    return persistedState
-  }
+  hydrate: (state, payload) =>
+    isParsable(payload) ? JSON.parse(payload) : state
 }
