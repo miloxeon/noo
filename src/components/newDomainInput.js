@@ -5,20 +5,17 @@ import Pad from 'ui/pad'
 import Input from 'ui/input'
 import Button from 'ui/button'
 
-const SecretInput = props => (
+const NewDomainInput = props => (
   <Pad padding='32px'>
+    <Button type='button'>Close</Button>
     <h2>
-      The secret
+      Add new domain
     </h2>
-    <p>
-      Once you enter this, there'll be no way back.
-    </p>
     <form onSubmit={ props.commit }>
       <Input
         required
-        type='password'
-        placeholder='keyboardcat'
-        value={ props.secret }
+        placeholder='google.com'
+        value={ props.value }
         onChange={ props.edit }
       />
       <div style={{
@@ -27,7 +24,7 @@ const SecretInput = props => (
         margin: '20px 0'
       }}>
         <Button>
-          Submit
+          Add
         </Button>
       </div>
     </form>
@@ -35,28 +32,28 @@ const SecretInput = props => (
 
 )
 
-SecretInput.displayName = 'SecretInput'
+NewDomainInput.displayName = 'NewDomainInput'
 
 export default connect(
   state => ({
-    secret: state.ui.secret
+    value: state.ui.newDomain
   }),
   dispatch => ({
     edit: e => dispatch({
-      type: 'editSecret', payload: e.target.value
+      type: 'editNewDomain', payload: e.target.value
     }),
     commit: e => { e.preventDefault(); dispatch({
-      type: 'commitSecret'
+      type: 'commitNewDomain'
     })}
   })
-)(SecretInput)
+)(NewDomainInput)
 
 export const actions = {
-  editSecret: (state, secret) => ({ ...state,
-    ui: { ...state.ui, secret }
+  editNewDomain: (state, newDomain) => ({ ...state,
+    ui: { ...state.ui, newDomain }
   }),
-  commitSecret: state => ({ ...state,
-    secret: state.ui.secret,
-    ui: { ...state.ui, secret: '' }
+  commitNewDomain: state => ({ ...state,
+    keys: { ...state.keys, [state.ui.newDomain]: 'supersecretpassword' },
+    ui: { ...state.ui, newDomain: '' }
   })
 }
