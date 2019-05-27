@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Pad from 'ui/pad'
 import Input from 'ui/input'
 import Button from 'ui/button'
+import Center from 'ui/center'
 
 const NewDomainInput = props => (
   <Pad padding='32px'>
@@ -19,19 +20,15 @@ const NewDomainInput = props => (
     <form onSubmit={ props.commit }>
       <Input
         required
-        placeholder='google.com'
+        placeholder='example.com'
         value={ props.value }
         onChange={ props.edit }
       />
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        margin: '20px 0'
-      }}>
+      <Center>
         <Button>
           Add
         </Button>
-      </div>
+      </Center>
     </form>
   </Pad>
 

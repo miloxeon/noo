@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Pad from 'ui/pad'
 import Input from 'ui/input'
 import Button from 'ui/button'
+import Center from 'ui/center'
 
 const SecretInput = props => (
   <Pad padding='32px'>
@@ -21,15 +22,11 @@ const SecretInput = props => (
         value={ props.secret }
         onChange={ props.edit }
       />
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        margin: '20px 0'
-      }}>
+      <Center>
         <Button>
           Submit
         </Button>
-      </div>
+      </Center>
     </form>
   </Pad>
 
