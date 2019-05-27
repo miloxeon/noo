@@ -2,9 +2,11 @@ import { createStore } from 'redux'
 import initialState from 'store/initialState'
 
 import app from 'components/app/actions'
+import root from 'store/actions'
 
 const actions = {
-  ...app
+  ...app,
+  ...root
 }
 
 export default createStore(
