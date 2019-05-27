@@ -7,7 +7,7 @@ import Button from 'ui/button'
 import Center from 'ui/center'
 
 const SecretInput = props => (
-  <Pad padding='32px'>
+  <Pad>
     <h2>
       The secret
     </h2>

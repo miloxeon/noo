@@ -19,11 +19,14 @@
   box-sizing: border-box;
 }
 
+body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 :root {
   font-family: 'system', sans-serif;
   font-size: 16px;
-
-  padding: 20px; /* development */
 
   --bias: .2s cubic-bezier(.25, .8, .25, 1);
 }

@@ -1,10 +1,12 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import Logout from 'components/logout'
 import DomainList from 'components/domainList'
 import SecretInput from 'components/secretInput'
 import NewDomainInput from 'components/newDomainInput'
+
+import Pad from 'ui/pad'
 
 class App extends Component {
   static displayName = 'App'
@@ -20,10 +22,10 @@ class App extends Component {
         return <NewDomainInput />
       } else {
         return (
-          <Fragment>
+          <Pad>
             <DomainList />
             <Logout />
-          </Fragment>
+          </Pad>
         )
       }
 

@@ -10,7 +10,7 @@ import Center from 'ui/center'
 const hash = (domain, secret) => keccak512(domain + secret).slice(0, 16)
 
 const NewDomainInput = props => (
-  <Pad padding='32px'>
+  <Pad>
     <Button
       type='button'
       onClick={ props.close }
