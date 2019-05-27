@@ -1,7 +1,8 @@
 .root {
   background-color: white;
   padding: 12px 24px;
-  border: 2px solid black;
+  border: none;
+  box-shadow: 0 0 0 2px black;
 
   will-change:
     transform,
@@ -15,12 +16,12 @@
 .root:hover,
 .root:focus {
   outline: none;
-  transform: translate(-2px, -2px);
-  box-shadow: 2px 2px 0 black;
+  transform: translate(-1px, -1px);
+  box-shadow: 1px 1px 0 2px black;
 }
 
 .root:active {
   outline: none;
-  transform: translate(2px, 2px);
-  box-shadow: 0 0 0 black;
+  transform: translate(1px, 1px);
+  box-shadow: -1px -1px 0 2px black;
 }
