@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const Domain = props => (
-  <li>
+  <li style={{ lineHeight: '1.5' }}>
     <span>
       { props.name }
     </span>
