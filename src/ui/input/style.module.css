@@ -1,5 +1,6 @@
 .root {
   background-color: white;
+  margin: 2px;
   padding: 12px;
   border: none;
   box-shadow: 0 0 0 2px black;
