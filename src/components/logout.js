@@ -17,8 +17,12 @@ export default connect(null, dispatch => ({
 }))(Logout)
 
 export const actions = {
-  logout: () => {
-    localStorage.removeItem('noo')
-    return initialState
+  logout: state => {
+    if (window.confirm('Are you sure want to quit? You will lose all your saved passwords.')) {
+      localStorage.removeItem('noo')
+      return initialState
+    } else {
+      return state
+    }
   }
 }
