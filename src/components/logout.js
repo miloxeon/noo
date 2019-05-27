@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { connect } from 'lib'
 import initialState from 'store/initialState'
 
 import Button from 'ui/button'
@@ -13,7 +13,7 @@ const Logout = props => (
 Logout.displayName = 'Logout'
 
 export default connect(null, dispatch => ({
-  onClick: () => dispatch({ type: 'logout' })
+  onClick: () => dispatch('logout')
 }))(Logout)
 
 export const actions = {
