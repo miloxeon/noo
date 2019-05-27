@@ -23,11 +23,8 @@ const DomainList = props => (
     {
       props.domains.length === 0 ?
         <p>You don't have any saved passwords yet.</p> :
-        props.domains.map(wrap)
+        <ul>{ props.domains.map(wrap) }</ul>
     }
-    <ul>
-      { props.domains.map(wrap) }
-    </ul>
     <Button
       autoFocus
       type='button'
