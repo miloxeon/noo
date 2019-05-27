@@ -6,7 +6,7 @@ import Input from 'ui/input'
 import Button from 'ui/button'
 import Center from 'ui/center'
 
-const hash = (domain, secret) => keccak512(domain + secret).slice(0, 16)
+const hash = (domain, secret) => keccak512(domain + secret).slice(0, 20)
 
 const NewDomainInput = props => (
   <Fragment>
