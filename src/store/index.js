@@ -1,7 +1,7 @@
 import { createStore } from 'redux'
 import initialState from 'store/initialState'
 
-import app from 'components/app/actions'
+import { actions as app } from 'components/app'
 import root from 'store/actions'
 
 const actions = {
