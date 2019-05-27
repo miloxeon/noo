@@ -1,0 +1,44 @@
+{
+  "name": "noo",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "modern-normalize": "^0.5.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-scripts": "3.0.1",
+    "redux": "^4.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "homepage": "https://noo.js.org",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run deploy"
+    }
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "husky": "^2.3.0"
+  }
+}
