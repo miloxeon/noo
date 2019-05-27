@@ -7,7 +7,12 @@ import Button from 'ui/button'
 
 const NewDomainInput = props => (
   <Pad padding='32px'>
-    <Button type='button'>Close</Button>
+    <Button
+      type='button'
+      onClick={ props.close }
+    >
+      Close
+    </Button>
     <h2>
       Add new domain
     </h2>
@@ -44,7 +49,8 @@ export default connect(
     }),
     commit: e => { e.preventDefault(); dispatch({
       type: 'commitNewDomain'
-    })}
+    })},
+    close: () => dispatch({ type: 'closeNewDomain' })
   })
 )(NewDomainInput)
 
@@ -55,5 +61,8 @@ export const actions = {
   commitNewDomain: state => ({ ...state,
     keys: { ...state.keys, [state.ui.newDomain]: 'supersecretpassword' },
     ui: { ...state.ui, newDomain: '' }
+  }),
+  closeNewDomain: state => ({ ...state,
+    domainInputActive: false
   })
 }
