@@ -5,7 +5,7 @@ import initialState from 'store/initialState'
 import Button from 'ui/button'
 
 const Logout = props => (
-  <Button { ...props }>
+  <Button type='button' { ...props }>
     Logout
   </Button>
 )
