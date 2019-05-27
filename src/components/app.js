@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 
 import Logout from 'components/logout'
@@ -6,33 +6,44 @@ import DomainList from 'components/domainList'
 import SecretInput from 'components/secretInput'
 import NewDomainInput from 'components/newDomainInput'
 
-const App = props => {
-  if (props.isLoggedIn) {
+class App extends Component {
+  static displayName = 'App'
 
-    if (props.domainInputActive) {
-      return <NewDomainInput />
+  componentDidMount () {
+    this.props.start()
+  }
+
+  render () {
+    if (this.props.isLoggedIn) {
+
+      if (this.props.domainInputActive) {
+        return <NewDomainInput />
+      } else {
+        return (
+          <Fragment>
+            <DomainList />
+            <Logout />
+          </Fragment>
+        )
+      }
+
     } else {
-      return (
-        <Fragment>
-          <DomainList />
-          <Logout />
-        </Fragment>
-      )
+      return <SecretInput />
     }
-
-  } else {
-    return <SecretInput />
   }
 }
-
-App.displayName = 'App'
 
 export default connect(
   state => ({
     isLoggedIn: Boolean(state.secret),
     domainInputActive: state.domainInputActive,
     secret: state.secret
+  }),
+  dispatch => ({
+    start: () => dispatch({ type: 'start' })
   })
 )(App)
 
-export const actions = {}
+export const actions = {
+  start: state => state
+}
