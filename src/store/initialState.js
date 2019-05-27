@@ -2,5 +2,5 @@ export default {
   keys: {
     // 'google': 'supersecretpassword'
   },
-  secret: ''
+  secret: null
 }
