@@ -19,6 +19,12 @@ const wrap = (data, index) => <Domain { ...data } key={ index } />
 
 const DomainList = props => (
   <Fragment>
+    <h2>Passwords</h2>
+    {
+      props.domains.length === 0 ?
+        <p>You don't have any saved passwords yet.</p> :
+        props.domains.map(wrap)
+    }
     <ul>
       { props.domains.map(wrap) }
     </ul>
