@@ -62,7 +62,8 @@ export const actions = {
     keys: { ...state.keys,
       [state.ui.newDomain]: hash(state.ui.newDomain, state.secret)
     },
-    ui: { ...state.ui, newDomain: '' }
+    ui: { ...state.ui, newDomain: '' },
+    domainInputActive: false
   }),
   closeNewDomain: state => ({ ...state,
     domainInputActive: false
