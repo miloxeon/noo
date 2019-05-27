@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
+import { pairs } from 'lib'
 
 import Button from 'ui/button'
 
@@ -39,10 +40,7 @@ DomainList.displayName = 'DomainList'
 
 export default connect(
   state => ({
-    domains: Object.keys(state.keys).map(name => ({
-      name,
-      password: state.keys[name]
-    }))
+    domains: pairs(state.keys, 'name', 'password')
   }),
   dispatch => ({
     activateDomainInput: () => dispatch({ type: 'activateDomainInput' })
