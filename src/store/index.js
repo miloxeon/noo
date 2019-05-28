@@ -17,7 +17,7 @@ const actions = {
   ...root
 }
 
-const logger = store => next => action => {
+const persist = store => next => action => {
   const result = next(action)
   const currentState = store.getState()
   const persistedState = localStorage.getItem('noo')
@@ -37,6 +37,6 @@ export default createStore(
     return actions[type] ? actions[type](state, payload) : state
   },
   composeEnhancers(
-    applyMiddleware(logger)
+    applyMiddleware(persist)
   )
 )
