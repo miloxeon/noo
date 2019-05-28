@@ -1,8 +1,11 @@
 .root {
+  appearance: none;
+
   background-color: white;
   margin: 2px;
   padding: 12px;
   border: none;
+  border-radius: 0;
   box-shadow: 0 0 0 2px black;
 
   width: 100%;
