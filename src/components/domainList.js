@@ -10,7 +10,7 @@ const DomainList = props => (
 
     { props.domainsExist && <ul>{ props.domains.map(index(Domain)) }</ul> }
     { !props.domainsExist && <p>You don't have any saved passwords yet.</p> }
-    
+
     <Button
       autoFocus
       type='button'
@@ -26,7 +26,7 @@ DomainList.displayName = 'DomainList'
 export default connect(
   state => ({
     domains: pairs(state.keys, 'name', 'password'),
-    domainsExist: pairs(state.keys, 'name', 'password').length
+    domainsExist: pairs(state.keys, 'name', 'password').length > 0
   }),
   dispatch => ({
     activateDomainInput: () => dispatch('activateDomainInput')
