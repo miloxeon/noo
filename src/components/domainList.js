@@ -16,7 +16,7 @@ const DomainList = props => (
       type='button'
       onClick={ props.activateDomainInput }
     >
-      Add
+      Add...
     </Button>
   </Fragment>
 )

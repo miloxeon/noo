@@ -6,7 +6,7 @@ import Button from 'ui/button'
 
 const Logout = props => (
   <Button type='button' { ...props }>
-    Logout
+    Logout...
   </Button>
 )
 
