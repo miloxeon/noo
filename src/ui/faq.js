@@ -10,7 +10,9 @@ export default props => (
       If the same secret is given, the same domain names would render the same passwords, so this is how Noo syncs. You just enter your secret and the domain – the given password will be the same.
     </p>
     <p>
-      There is no way to acquire your secret from the password, so you are safe here.
+      There is <a href='https://nakedsecurity.sophos.com/2012/10/04/sha-3-hash-competition-concludes-keccak/' target='_blank' rel='noopener noreferrer'>
+        no way to acquire your secret
+      </a> from the password – the algorythm is the same as used in Etherium, so you are safe here.
     </p>
   </Fragment>
 )
