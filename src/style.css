@@ -79,3 +79,13 @@ img:not([src]) {
     animation-name: shake2;
     transform-origin: 30% 5%;
 }
+
+.pillbox {
+  display: flex;
+  align-items: center;
+  margin: -8px;
+}
+
+.pillbox > * {
+  margin: 8px;
+}
