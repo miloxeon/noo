@@ -6,11 +6,13 @@
 
   will-change:
     transform,
-    box-shadow;
+    box-shadow,
+    background-color;
 
   transition:
     transform var(--bias),
-    box-shadow var(--bias);
+    box-shadow var(--bias),
+    background-color var(--bias);
 }
 
 .root:hover,
@@ -22,6 +24,7 @@
 
 .root:active {
   outline: none;
+  background-color: #f1f1f1;
   transform: translate(1px, 1px);
   box-shadow: -1px -1px 0 2px black;
 }
