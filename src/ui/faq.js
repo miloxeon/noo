@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from 'ui/logo'
 
 export default props => (
-  <div style={{ marginTop: '100px' }}>
+  <div { ...props }>
     <Logo>
       <h1>Noo – the password manager</h1>
     </Logo>

@@ -26,7 +26,7 @@ const SecretInput = props => (
         <Button>Submit secret</Button>
       </Center>
     </form>
-    <Faq />
+    <Faq style={{ marginTop: '100px' }} />
   </Fragment>
 
 )
