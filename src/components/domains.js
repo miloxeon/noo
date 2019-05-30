@@ -1,26 +1,22 @@
 import React from 'react'
-import { pairs, index, omit } from 'lib'
+import { pairs, index } from 'lib'
 import { connect } from 'react-redux'
 
-import Copy from 'ui/copy'
-import Button from 'ui/button'
 import Grid from 'ui/grid'
-
-import Favicon from 'components/favicon'
 import Domain from 'components/domain'
 
-const DomainList = props => (
+const Domains = props => (
   <Grid>
     { props.domains.map(index(Domain)) }
   </Grid>
 )
 
-DomainList.displayName = 'DomainList'
+Domains.displayName = 'Domains'
 
 export default connect(
   state => ({
     domains: pairs(state.keys, 'name', 'password'),
   })
-)(DomainList)
+)(Domains)
 
 export const actions = {}

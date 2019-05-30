@@ -1,13 +1,9 @@
 import React, { Fragment } from 'react'
-import { pairs, assoc, connect, index } from 'lib'
+import { pairs, assoc, connect } from 'lib'
 
 import Button from 'ui/button'
-import Copy from 'ui/copy'
-import Grid from 'ui/grid'
 import Logo from 'ui/logo'
-
 import Domains from 'components/domains'
-import Favicon from 'components/favicon'
 
 const DomainList = props => (
   <Fragment>

@@ -39,19 +39,6 @@ class Favicon extends Component {
         }
       </Fragment>
     )
-
-
-    return (
-      <img
-        alt=''
-        src={ this.props.src }
-        style={{
-          marginRight: '8px',
-          height: '16px',
-          width: '16px'
-        }}
-      />
-    )
   }
 }
 
