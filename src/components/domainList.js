@@ -4,6 +4,7 @@ import { pairs, assoc, connect, index } from 'lib'
 import Button from 'ui/button'
 import Copy from 'ui/copy'
 import Grid from 'ui/grid'
+import Logo from 'ui/logo'
 import Favicon from 'components/favicon'
 
 const Domain = props => (
@@ -25,7 +26,9 @@ const Domains = props => (
 
 const DomainList = props => (
   <Fragment>
-    <h2>Passwords</h2>
+    <Logo>
+      <h2>Passwords</h2>
+    </Logo>
 
     { props.domainsExist && <Domains domains={ props.domains } /> }
     { !props.domainsExist && <p>You don't have any saved passwords yet.</p> }

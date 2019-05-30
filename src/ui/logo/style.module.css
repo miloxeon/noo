@@ -1,0 +1,8 @@
+.root {
+  display: flex;
+  align-items: center;
+}
+
+.root > *:nth-child(2) {
+  margin-left: .25rem;
+}
