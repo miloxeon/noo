@@ -30,6 +30,6 @@
 .root:active {
   outline: none;
   transform: translate(1px, 1px);
-  background-color: #f1f1f1;
+  background-color: #f5ffff;
   box-shadow: -1px -1px 0 2px black;
 }
