@@ -4,7 +4,7 @@ import { ReactComponent as Remove } from 'assets/remove.svg'
 
 class Favicon extends Component {
   componentDidMount () {
-    if (!this.props.domainEditingActive) {
+    if (!this.props.domainEditingActive && !this.props.iconIsPresent) {
       encodeIcon(this.props.name).then(value => this.props.setIcon({
         name: this.props.name,
         value
@@ -45,6 +45,7 @@ class Favicon extends Component {
 export default connect(
   (state, props) => ({
     src: state.icons[props.name],
+    iconIsPresent: Boolean(state.icons[props.name]),
     domainEditingActive: state.domainEditingActive
   }),
   (dispatch, props) => ({
