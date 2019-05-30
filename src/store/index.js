@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import persist from './persist'
 import initialState from 'store/initialState'
 
 import { actions as app } from 'components/app'
@@ -15,19 +16,6 @@ const actions = {
   ...newDomainInput,
   ...domainList,
   ...root
-}
-
-const persist = store => next => action => {
-  const result = next(action)
-  const currentState = store.getState()
-  const persistedState = localStorage.getItem('noo')
-
-  if ((currentState === initialState) && Boolean(persistedState)) {
-    store.dispatch({ type: 'hydrate', payload: persistedState })
-  } else {
-    localStorage.setItem('noo', JSON.stringify(currentState))
-  }
-  return result
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
