@@ -7,6 +7,7 @@ import Title from 'react-document-title'
 
 import RawFaq from 'ui/faq'
 import Pad from 'ui/pad'
+import Logo from 'ui/logo'
 
 import Logout from 'components/logout'
 import DomainList from 'components/domainList'
@@ -42,6 +43,7 @@ const Default = connect(
     <PoseGroup>
       { props.secretInputActive &&
         <AnimationWrapper key='SecretInput'>
+          <Logo />
           <SecretInput />
         </AnimationWrapper>
       }
