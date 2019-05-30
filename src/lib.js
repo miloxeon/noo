@@ -43,7 +43,14 @@ export const encodeIcon = name => fetch('https://favicon.keeweb.info/' + name)
   .then(response => response.blob())
   .then(blob => new Promise((resolve, reject) => {
     const reader = new FileReader()
-    reader.onloadend = () => resolve(reader.result)
+    reader.onloadend = () => {
+      const { result } = reader
+      if (result !== 'data:') {
+        resolve(result)
+      } else {
+        reject()
+      }
+    }
     reader.onerror = reject
     reader.readAsDataURL(blob)
   }))
