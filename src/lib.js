@@ -64,3 +64,9 @@ export const omit = (obj, key) => {
 
   return result
 }
+
+export const onEsc = cb => e => {
+  if (e.key === 'Escape') {
+    cb()
+  }
+}
