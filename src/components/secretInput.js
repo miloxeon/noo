@@ -14,7 +14,7 @@ const SecretInput = props => (
       Once you enter this, there'll be no way back.
     </p>
     <p>
-      There is no way to restore the secret either.
+      For security reasons there is no way to restore the secret either.
     </p>
     <form onSubmit={ props.commit }>
       <Input
