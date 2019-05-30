@@ -3,6 +3,7 @@ import { pairs, assoc, connect, index } from 'lib'
 
 import Button from 'ui/button'
 import Copy from 'ui/copy'
+import Grid from 'ui/grid'
 
 const Domain = props => (
   <Copy value={ props.password }>
@@ -10,11 +11,17 @@ const Domain = props => (
   </Copy>
 )
 
+const Domains = props => (
+  <Grid>
+    { props.domains.map(index(Domain)) }
+  </Grid>
+)
+
 const DomainList = props => (
   <Fragment>
     <h2>Passwords</h2>
 
-    { props.domainsExist && <ul>{ props.domains.map(index(Domain)) }</ul> }
+    { props.domainsExist && <Domains domains={ props.domains } /> }
     { !props.domainsExist && <p>You don't have any saved passwords yet.</p> }
 
     <Button

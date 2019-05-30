@@ -1,0 +1,11 @@
+.root {
+  padding: 48px 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px;
+}
+
+.root > * {
+  margin: 8px;
+}
