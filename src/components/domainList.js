@@ -12,7 +12,7 @@ const DomainList = props => (
     </Logo>
 
     { props.domainsExist && <Domains /> }
-    { !props.domainsExist && <p>You don't have any saved passwords yet.</p> }
+    { !props.domainsExist && <p>It's time to make some passwords.</p> }
 
     <Button
       autoFocus

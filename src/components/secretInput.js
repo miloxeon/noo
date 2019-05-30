@@ -11,10 +11,7 @@ const SecretInput = props => (
   <Fragment>
     <h2>The secret</h2>
     <p>
-      Once you enter this, there'll be no way back.
-    </p>
-    <p>
-      For security reasons there is no way to restore the secret either.
+      This is the first and the last time you see your secret there. Once you enter it, there'll be no way to restore it.
     </p>
     <form onSubmit={ props.commit }>
       <Input
@@ -26,7 +23,7 @@ const SecretInput = props => (
         onChange={ props.edit }
       />
       <Center>
-        <Button>Submit</Button>
+        <Button>Submit secret</Button>
       </Center>
     </form>
     <Faq />
