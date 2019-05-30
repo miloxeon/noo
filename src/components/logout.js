@@ -5,7 +5,7 @@ import initialState from 'store/initialState'
 import Button from 'ui/button'
 
 const Logout = props => !props.domainEditingActive && (
-  <Button type='button' { ...props }>
+  <Button type='button' onClick={ props.onClick }>
     Logout...
   </Button>
 )
