@@ -7,7 +7,11 @@ import Grid from 'ui/grid'
 import Favicon from 'components/favicon'
 
 const Domain = props => (
-  <Copy value={ props.password }>
+  <Copy value={ props.password } style={{
+    padding: '4px 8px',
+    alignItems: 'center',
+    display: 'flex'
+  }}>
     <Favicon name={ props.name } />
     { props.name }
   </Copy>
