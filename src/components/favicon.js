@@ -32,7 +32,7 @@ class Favicon extends Component {
 
         { this.props.domainEditingActive &&
           <Remove style={{
-            marginRight: '8px',
+            marginLeft: '8px',
             height: '16px',
             width: '16px'
           }} />

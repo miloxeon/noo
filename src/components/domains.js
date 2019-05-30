@@ -14,7 +14,8 @@ const Domain = connect(
       padding: '8px',
       alignItems: 'center',
       display: 'flex',
-      animationDelay: (-1 * Math.random() / 2) + 's',
+      flexDirection: props.domainEditingActive ? 'row-reverse' : 'row',
+      animationDelay: (-1 * (0.2 + Math.random()) / 2) + 's',
       animationDuration: (0.2 + Math.random() / 2) + 's'
     }} className={ props.domainEditingActive && 'shake' }>
       <Favicon name={ props.name } />
