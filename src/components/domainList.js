@@ -21,12 +21,14 @@ const DomainList = props => (
     >
       Add...
     </Button>
-    <Button
-      type='button'
-      onClick={ props.toggleDomainEditing }
-    >
-      Edit...
-    </Button>
+    { props.domainsExist &&
+      <Button
+        type='button'
+        onClick={ props.toggleDomainEditing }
+      >
+        Edit...
+      </Button>
+    }
   </Fragment>
 )
 
