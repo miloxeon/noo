@@ -1,4 +1,6 @@
 .root {
+  display: inline-block;
+  user-select: none;
   appearance: none;
   background-color: white;
   font-size: 16px;
@@ -7,8 +9,7 @@
   padding: 12px 24px;
   border: none;
   box-shadow: 0 0 0 2px black;
-  margin-bottom: 0;
-  margin-right: 0;
+  margin: 0 2px 2px 0;
 
   will-change:
     transform,
