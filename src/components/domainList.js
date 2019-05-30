@@ -4,9 +4,11 @@ import { pairs, assoc, connect, index } from 'lib'
 import Button from 'ui/button'
 import Copy from 'ui/copy'
 import Grid from 'ui/grid'
+import Favicon from 'components/favicon'
 
 const Domain = props => (
   <Copy value={ props.password }>
+    <Favicon name={ props.name } />
     { props.name }
   </Copy>
 )
