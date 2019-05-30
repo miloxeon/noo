@@ -89,3 +89,7 @@ img:not([src]) {
 .pillbox > * {
   margin: 8px;
 }
+
+::selection {
+  background-color: #d5ffff;
+}

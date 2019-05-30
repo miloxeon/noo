@@ -23,6 +23,7 @@
 .root:hover,
 .root:focus {
   outline: none;
+  background-color: #f5ffff;
   transform: translate(-1px, -1px);
   box-shadow: 1px 1px 0 2px black;
 }
