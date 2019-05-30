@@ -1,13 +1,16 @@
-import React, { Component } from 'react'
-import { isParsable, connect } from 'lib'
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { isParsable } from 'lib'
+import { connect } from 'react-redux'
 import posed, { PoseGroup } from 'react-pose'
+
+import RawFaq from 'ui/faq'
+import Pad from 'ui/pad'
 
 import Logout from 'components/logout'
 import DomainList from 'components/domainList'
 import SecretInput from 'components/secretInput'
 import NewDomainInput from 'components/newDomainInput'
-
-import Pad from 'ui/pad'
 
 const AnimationWrapper = posed.div({
   enter: {
@@ -26,6 +29,47 @@ const AnimationWrapper = posed.div({
   }
 })
 
+const Default = connect(
+  state => ({
+    secretInputActive: !Boolean(state.secret),
+    domainInputActive: Boolean(state.secret) && state.domainInputActive,
+    domainListActive: Boolean(state.secret) && !state.domainInputActive,
+    secret: state.secret
+  })
+)(props => (
+  <Fragment>
+    <PoseGroup>
+      { props.secretInputActive &&
+        <AnimationWrapper key='SecretInput'>
+          <SecretInput />
+        </AnimationWrapper>
+      }
+      { props.domainInputActive &&
+        <AnimationWrapper key='NewDomainInput'>
+          <NewDomainInput />
+        </AnimationWrapper>
+      }
+      { props.domainListActive &&
+        <AnimationWrapper key='default'>
+          <DomainList />
+          <Logout />
+        </AnimationWrapper>
+      }
+    </PoseGroup>
+  </Fragment>
+))
+
+const Faq = props => (
+  <Fragment>
+    <p>
+      <Link to='/'>
+        {'<'} Go to main page
+      </Link>
+    </p>
+    <RawFaq />
+  </Fragment>
+)
+
 class App extends Component {
   static displayName = 'App'
 
@@ -36,40 +80,18 @@ class App extends Component {
   render () {
     return (
       <Pad>
-        <PoseGroup>
-          { this.props.secretInputActive &&
-            <AnimationWrapper key='SecretInput'>
-              <SecretInput />
-            </AnimationWrapper>
-          }
-          { this.props.domainInputActive &&
-            <AnimationWrapper key='NewDomainInput'>
-              <NewDomainInput />
-            </AnimationWrapper>
-          }
-          { this.props.domainListActive &&
-            <AnimationWrapper key='default'>
-              <DomainList />
-              <Logout />
-            </AnimationWrapper>
-          }
-        </PoseGroup>
+        <Router>
+          <Route exact path='/' component={ Default } />
+          <Route exact path='/faq' component={ Faq } />
+        </Router>
       </Pad>
     )
   }
 }
 
-export default connect(
-  state => ({
-    secretInputActive: !Boolean(state.secret),
-    domainInputActive: Boolean(state.secret) && state.domainInputActive,
-    domainListActive: Boolean(state.secret) && !state.domainInputActive,
-    secret: state.secret
-  }),
-  dispatch => ({
-    start: () => dispatch('start')
-  })
-)(App)
+export default connect(null, dispatch => ({
+  start: () => dispatch({ type: 'start' })
+}))(App)
 
 export const actions = {
   start: state => state,

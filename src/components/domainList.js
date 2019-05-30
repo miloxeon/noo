@@ -1,8 +1,11 @@
 import React, { Fragment, Component } from 'react'
 import { pairs, assoc, connect, onEsc } from 'lib'
+import { Link } from 'react-router-dom'
 
 import Button from 'ui/button'
 import Logo from 'ui/logo'
+import { ReactComponent as Info } from 'assets/info.svg'
+
 import Domains from 'components/domains'
 
 class DomainList extends Component {
@@ -26,9 +29,21 @@ class DomainList extends Component {
   render () {
     return (
       <Fragment>
-        <Logo>
-          <h2>Passwords</h2>
-        </Logo>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}>
+          <Logo>
+            <h2>Passwords</h2>
+          </Logo>
+          <Link
+            to='/faq'
+            target='_blank'
+          >
+            <Info />
+          </Link>
+        </div>
 
         { this.props.domainsExist && <Domains /> }
         { !this.props.domainsExist && <p>It's time to make some passwords.</p> }
