@@ -1,3 +1,5 @@
+import { refocus } from 'lib'
+
 export function copy (e) {
   const content = e.target.dataset.value
   if (content.length > 0) {
@@ -5,5 +7,6 @@ export function copy (e) {
     ghost.value = content
     ghost.select()
     document.execCommand('copy')
+    refocus()
   }
 }
