@@ -4,7 +4,7 @@ import initialState from 'store/initialState'
 
 import Button from 'ui/button'
 
-const Logout = props => (
+const Logout = props => !props.domainEditingActive && (
   <Button type='button' { ...props }>
     Logout...
   </Button>
@@ -12,9 +12,14 @@ const Logout = props => (
 
 Logout.displayName = 'Logout'
 
-export default connect(null, dispatch => ({
-  onClick: () => dispatch('logout')
-}))(Logout)
+export default connect(
+  state => ({
+    domainEditingActive: state.domainEditingActive
+  }),
+  dispatch => ({
+    onClick: () => dispatch('logout')
+  })
+)(Logout)
 
 export const actions = {
   logout: state => {

@@ -33,19 +33,29 @@ class DomainList extends Component {
         { this.props.domainsExist && <Domains /> }
         { !this.props.domainsExist && <p>It's time to make some passwords.</p> }
 
-        <Button
+        { !this.props.domainEditingActive && <Button
           autoFocus
           type='button'
           onClick={ this.props.activateDomainInput }
         >
           Add...
-        </Button>
-        { this.props.domainsExist &&
+        </Button> }
+
+        { !this.props.domainEditingActive && this.props.domainsExist &&
           <Button
             type='button'
             onClick={ this.props.toggleDomainEditing }
           >
             Edit...
+          </Button>
+        }
+
+        { this.props.domainEditingActive &&
+          <Button
+            type='button'
+            onClick={ this.props.toggleDomainEditing }
+          >
+            {'<'} Back
           </Button>
         }
       </Fragment>
