@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { connect, prevent } from 'lib'
 import { keccak512 as hash } from 'js-sha3'
 
@@ -6,9 +6,10 @@ import Input from 'ui/input'
 import Button from 'ui/button'
 import Center from 'ui/center'
 import Faq from 'ui/faq'
+import Pad from 'ui/pad'
 
 const SecretInput = props => (
-  <Fragment>
+  <Pad padding='64px 0 0 0'>
     <h2>The secret</h2>
     <p>
       This is the first and the last time you see your secret there. Once you enter it, there'll be no way to restore it.
@@ -27,8 +28,7 @@ const SecretInput = props => (
       </Center>
     </form>
     <Faq style={{ marginTop: '100px' }} />
-  </Fragment>
-
+  </Pad>
 )
 
 SecretInput.displayName = 'SecretInput'
