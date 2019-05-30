@@ -13,10 +13,10 @@ export const assoc = (obj, key, value) => ({ ...obj,
 })
 
 export const connect = (mstp, mdtp) => originalConnect(mstp,
-  (dispatch, props) => mdtp(
+  ((dispatch, props) => mdtp(
     (type, payload) => dispatch({ type, payload }),
     props
-  )
+  ))
 )
 
 export const isParsable = str => {
@@ -38,3 +38,12 @@ export const hash = (domain, secret) =>
 
 export const index = Component => (data, i) =>
   <Component { ...data } key={ i } />
+
+export const encodeIcon = name => fetch('https://favicon.keeweb.info/' + name)
+  .then(response => response.blob())
+  .then(blob => new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result)
+    reader.onerror = reject
+    reader.readAsDataURL(blob)
+  }))
