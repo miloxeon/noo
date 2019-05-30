@@ -1,5 +1,9 @@
 .root {
+  appearance: none;
   background-color: white;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Work Sans', 'system', sans-serif;
   padding: 12px 24px;
   border: none;
   box-shadow: 0 0 0 2px black;

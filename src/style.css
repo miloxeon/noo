@@ -1,7 +1,7 @@
 @font-face {
   font-family: system;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   src:
     local('.SFNSText-Light'),
     local('.HelveticaNeueDeskInterface-Light'),
@@ -25,9 +25,8 @@ body {
 }
 
 :root {
-  font-family: 'system', sans-serif;
+  font-family: 'Work Sans', 'system', sans-serif;
   font-size: 16px;
-
   --bias: .2s cubic-bezier(.25, .8, .25, 1);
 }
 
@@ -37,8 +36,19 @@ button,
   cursor: pointer;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
-  margin: 1.5em 0;
+  margin: 16px 0;
+  line-height: 1.4;
+}
+
+p:last-of-type {
+  margin-bottom: 32px;
 }
 
 img:not([src]) {
