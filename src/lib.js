@@ -57,5 +57,3 @@ export const omit = (obj, key) => {
 
   return result
 }
-
-export const refocus = () => document.body.focus()

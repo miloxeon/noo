@@ -10,7 +10,7 @@ class Copy extends Component {
   constructor (props) {
     super (props)
     this.ghost = React.createRef()
-
+    this.button = React.createRef()
     this.copy = copy.bind(this)
   }
 
@@ -23,6 +23,7 @@ class Copy extends Component {
           trigger='click'
         >
           <Button
+            ref={ this.button }
             { ...this.props }
             onClick={ this.copy }
             data-value={ this.props.value }
@@ -31,6 +32,7 @@ class Copy extends Component {
             </Button>
         </Tooltip>
         <textarea
+          hidden
           ref={ this.ghost }
           className={ style.ghost }
         ></textarea>
