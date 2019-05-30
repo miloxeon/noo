@@ -15,7 +15,15 @@ class Favicon extends Component {
 
   render () {
     return (
-      <img alt='' src={ this.props.src } style={{ marginRight: '4px' }} />
+      <img
+        alt=''
+        src={ this.props.src }
+        style={{
+          marginRight: '8px',
+          height: '16px',
+          width: '16px'
+        }}
+      />
     )
   }
 }

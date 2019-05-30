@@ -40,3 +40,7 @@ button,
 p {
   margin: 1.5em 0;
 }
+
+img:not([src]) {
+  display: none;
+}

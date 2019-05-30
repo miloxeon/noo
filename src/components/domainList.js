@@ -8,7 +8,7 @@ import Favicon from 'components/favicon'
 
 const Domain = props => (
   <Copy value={ props.password } style={{
-    padding: '4px 8px',
+    padding: '8px',
     alignItems: 'center',
     display: 'flex'
   }}>
