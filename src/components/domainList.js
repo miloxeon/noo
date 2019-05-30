@@ -2,7 +2,13 @@ import React, { Fragment } from 'react'
 import { pairs, assoc, connect, index } from 'lib'
 
 import Button from 'ui/button'
-import Domain from 'ui/domain'
+import Copy from 'ui/copy'
+
+const Domain = props => (
+  <Copy value={ props.password }>
+    { props.name }
+  </Copy>
+)
 
 const DomainList = props => (
   <Fragment>
