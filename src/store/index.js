@@ -9,6 +9,7 @@ import { actions as secretInput } from 'components/secretInput'
 import { actions as newDomainInput } from 'components/newDomainInput'
 import { actions as domainList } from 'components/domainList'
 import { actions as domains } from 'components/domains'
+import { actions as domain } from 'components/domain'
 import { actions as favicon } from 'components/favicon'
 import root from 'store/actions'
 
@@ -19,6 +20,7 @@ const actions = {
   ...newDomainInput,
   ...domainList,
   ...domains,
+  ...domain,
   ...favicon,
   ...root
 }
