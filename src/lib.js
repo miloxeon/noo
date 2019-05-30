@@ -47,3 +47,13 @@ export const encodeIcon = name => fetch('https://favicon.keeweb.info/' + name)
     reader.onerror = reject
     reader.readAsDataURL(blob)
   }))
+
+export const omit = (obj, key) => {
+  let result = {}
+
+  Object.keys(obj).filter(entity => entity !== key).forEach(entity => {
+    result[entity] = obj[entity]
+  })
+
+  return result
+}
