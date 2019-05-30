@@ -45,7 +45,7 @@ export const actions = {
   }),
   commitNewDomain: state => ({ ...state,
     keys: { ...state.keys,
-      [state.ui.newDomain]: hash(state.ui.newDomain, state.secret)
+      [state.ui.newDomain.toLowerCase()]: hash(state.ui.newDomain.toLowerCase(), state.secret)
     },
     ui: { ...state.ui, newDomain: '' },
     domainInputActive: false
