@@ -1,6 +1,6 @@
 {
-    "name": "Noo",
-    "short_name": "Noo – the password manager",
+    "name": "Noo – the password manager",
+    "short_name": "Noo",
     "icons": [
         {
             "src": "android-chrome-192x192.png",
