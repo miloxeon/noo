@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { isParsable } from 'lib'
 import { connect } from 'react-redux'
 import posed, { PoseGroup } from 'react-pose'
+import Title from 'react-document-title'
 
 import RawFaq from 'ui/faq'
 import Pad from 'ui/pad'
@@ -51,8 +52,12 @@ const Default = connect(
       }
       { props.domainListActive &&
         <AnimationWrapper key='default'>
-          <DomainList />
-          <Logout />
+          <Title title='Saved passwords'>
+            <Fragment>
+              <DomainList />
+              <Logout />
+            </Fragment>
+          </Title>
         </AnimationWrapper>
       }
     </PoseGroup>
@@ -60,14 +65,16 @@ const Default = connect(
 ))
 
 const Faq = props => (
-  <Fragment>
-    <p>
-      <Link to='/'>
-        {'<'} Go to main page
-      </Link>
-    </p>
-    <RawFaq />
-  </Fragment>
+  <Title title='Faq | Noo – the papassword manager'>
+    <Fragment>
+      <p>
+        <Link to='/'>
+          {'<'} Go to main page
+        </Link>
+      </p>
+      <RawFaq />
+    </Fragment>
+  </Title>
 )
 
 class App extends Component {
