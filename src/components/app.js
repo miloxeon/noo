@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom'
 import { isParsable } from 'lib'
 import { connect } from 'react-redux'
 import posed, { PoseGroup } from 'react-pose'
@@ -79,6 +79,8 @@ const Faq = props => (
   </Title>
 )
 
+const ToHome = props => <Redirect to={{ pathname: '/' }} />
+
 class App extends Component {
   static displayName = 'App'
 
@@ -90,8 +92,11 @@ class App extends Component {
     return (
       <Pad>
         <Router>
-          <Route exact path='/' component={ Default } />
-          <Route exact path='/faq' component={ Faq } />
+          <Switch>
+            <Route exact path='/' component={ Default } />
+            <Route exact path='/faq' component={ Faq } />
+            <Route component={ ToHome } />
+          </Switch>
         </Router>
       </Pad>
     )
