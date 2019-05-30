@@ -1,32 +1,47 @@
-import React, { Fragment } from 'react'
-import { connect, prevent, assoc, hash } from 'lib'
+import React, { Fragment, Component } from 'react'
+import { connect, prevent, assoc, hash, onEsc } from 'lib'
 
 import Input from 'ui/input'
 import Button from 'ui/button'
 import Center from 'ui/center'
 
-const NewDomainInput = props => (
-  <Fragment>
-    <Button type='button' onClick={ props.close }>
-      Close
-    </Button>
-    <h2>Add new domain</h2>
-    <form onSubmit={ props.commit }>
-      <Input
-        autoFocus
-        required
-        placeholder='example.com'
-        value={ props.value }
-        onChange={ props.edit }
-      />
-      <Center>
-        <Button>Add</Button>
-      </Center>
-    </form>
-  </Fragment>
-)
+class NewDomainInput extends Component {
 
-NewDomainInput.displayName = 'NewDomainInput'
+  static displayName = 'NewDomainInput'
+
+  componentDidMount () {
+    document.addEventListener('keydown', onEsc(this.props.close))
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('keydown', onEsc(this.props.close))
+  }
+
+  render () {
+    return (
+      <Fragment>
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Button type='button' onClick={ this.props.close }>
+            Close
+          </Button>
+        </div>
+        <h2>Add new domain</h2>
+        <form onSubmit={ this.props.commit }>
+          <Input
+            autoFocus
+            required
+            placeholder='example.com'
+            value={ this.props.value }
+            onChange={ this.props.edit }
+          />
+          <Center>
+            <Button>Add</Button>
+          </Center>
+        </form>
+      </Fragment>
+    )
+  }
+}
 
 export default connect(
   state => ({
