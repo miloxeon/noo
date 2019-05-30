@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { connect, prevent } from 'lib'
+import { keccak512 as hash } from 'js-sha3'
 
 import Input from 'ui/input'
 import Button from 'ui/button'
@@ -50,7 +51,7 @@ export const actions = {
     ui: { ...state.ui, secret }
   }),
   commitSecret: state => ({ ...state,
-    secret: state.ui.secret,
+    secret: hash(state.ui.secret),
     ui: { ...state.ui, secret: '' }
   })
 }
