@@ -6,15 +6,21 @@ import Copy from 'ui/copy'
 import Grid from 'ui/grid'
 import Favicon from 'components/favicon'
 
-const Domain = props => (
-  <Copy value={ props.password } style={{
-    padding: '8px',
-    alignItems: 'center',
-    display: 'flex'
-  }}>
-    <Favicon name={ props.name } />
-    { props.name }
-  </Copy>
+const Domain = connect(
+  state => ({ domainEditingActive: state.domainEditingActive })
+)(
+  props => (
+    <Copy value={ props.password } style={{
+      padding: '8px',
+      alignItems: 'center',
+      display: 'flex',
+      animationDelay: (-1 * Math.random() / 2) + 's',
+      animationDuration: (0.2 + Math.random() / 2) + 's'
+    }} className={ props.domainEditingActive && 'shake' }>
+      <Favicon name={ props.name } />
+      { props.name }
+    </Copy>
+  )
 )
 
 const DomainList = props => (
