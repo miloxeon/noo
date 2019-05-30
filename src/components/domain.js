@@ -42,6 +42,7 @@ export default connect(
 
 export const actions = {
   removeKey: (state, name) => ({ ...state,
-    keys: omit(state.keys, name)
+    keys: omit(state.keys, name),
+    domainEditingActive: Object.keys(state.keys).length > 1
   })
 }
