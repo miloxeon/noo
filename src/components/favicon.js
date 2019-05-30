@@ -6,7 +6,9 @@ class Favicon extends Component {
     encodeIcon(this.props.name).then(value => this.props.setIcon({
       name: this.props.name,
       value
-    }))
+    })).catch(
+      () => console.warn(`It seems like "${this.props.name}" doesn't have an icon.`)
+    )
   }
 
   static displayName = 'Favicon'
