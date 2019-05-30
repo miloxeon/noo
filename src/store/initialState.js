@@ -10,5 +10,6 @@ export default {
     // 'google': 'img/base64:somelettersanddigits'
   },
   secret: '',
-  domainInputActive: false
+  domainInputActive: false,
+  domainEditingActive: false
 }
