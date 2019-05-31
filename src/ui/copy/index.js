@@ -33,6 +33,7 @@ class Copy extends Component {
         </Tooltip>
         <textarea
           hidden
+          contentEditable
           ref={ this.ghost }
           className={ style.ghost }
         ></textarea>
