@@ -6,13 +6,9 @@ import Button from 'ui/button'
 import { Tooltip } from 'react-tippy'
 
 class Copy extends Component {
-
-  constructor (props) {
-    super (props)
-    this.ghost = React.createRef()
-    this.button = React.createRef()
-    this.copy = copy.bind(this)
-  }
+  ghost = React.createRef()
+  button = React.createRef()
+  copy = copy.bind(this)
 
   state = {
     open: false
