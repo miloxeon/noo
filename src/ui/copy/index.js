@@ -18,7 +18,7 @@ class Copy extends Component {
     return (
       <Fragment>
         <Tooltip
-          title='Copied!'
+          title='Password copied'
           position='top'
           trigger='click'
         >
@@ -33,7 +33,6 @@ class Copy extends Component {
         </Tooltip>
         <textarea
           hidden
-          contentEditable
           ref={ this.ghost }
           className={ style.ghost }
         ></textarea>
