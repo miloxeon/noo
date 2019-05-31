@@ -14,18 +14,34 @@ class Copy extends Component {
     this.copy = copy.bind(this)
   }
 
+  state = {
+    open: false
+  }
+
+  trigger = () => {
+    this.setState(state => ({ ...state, open: true }))
+
+    this.copy()
+
+    setTimeout(
+      () => this.setState(state => ({ ...state, open: false })),
+      1000
+    )
+  }
+
   render () {
     return (
       <Fragment>
         <Tooltip
           title='Password copied'
           position='top'
-          trigger='click'
+          trigger='manual'
+          { ...this.state }
         >
           <Button
             ref={ this.button }
             { ...this.props }
-            onClick={ this.copy }
+            onClick={ this.trigger }
             data-value={ this.props.value }
             >
               { this.props.children }

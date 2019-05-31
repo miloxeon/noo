@@ -1,6 +1,6 @@
-export function copy (e) {
+export function copy () {
 
-  const content = e.target.dataset.value
+  const content = this.button.current.dataset.value
 
   if (content.length > 0) {
 
@@ -16,13 +16,16 @@ export function copy (e) {
     // necessary
     ghost.contentEditable = true
 
-    // some range magic
+    // some range magic for safari
     const range = document.createRange()
     range.selectNodeContents(ghost)
     const s = window.getSelection()
     s.removeAllRanges()
     s.addRange(range)
     ghost.setSelectionRange(0, 999999)
+
+    // just text selection for other normal browsers
+    ghost.select()
 
     // copy
     document.execCommand('copy')
