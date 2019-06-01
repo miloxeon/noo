@@ -26,16 +26,19 @@ class NewDomainInput extends Component {
           </Button>
         </div>
         <h2>Add new domain</h2>
-        <form onSubmit={ this.props.commit }>
+        <form onSubmit={ this.props.commit } noValidate>
           <Input
             autoFocus
             required
+            type='url'
             placeholder='example.com'
             value={ this.props.value }
             onChange={ this.props.edit }
           />
           <Center>
-            <Button>Add</Button>
+            <Button disabled={ this.props.isEmpty }>
+              Add
+            </Button>
           </Center>
         </form>
       </Fragment>
@@ -45,7 +48,8 @@ class NewDomainInput extends Component {
 
 export default connect(
   state => ({
-    value: state.ui.newDomain
+    value: state.ui.newDomain,
+    isEmpty: state.ui.newDomain.length === 0
   }),
   dispatch => ({
     edit: e => dispatch('editNewDomain', e.target.value),
