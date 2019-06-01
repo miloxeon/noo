@@ -89,6 +89,12 @@ img:not([src]) {
     transform-origin: 30% 5%;
 }
 
+.teeter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .pillbox {
   display: flex;
   align-items: center;
