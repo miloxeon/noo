@@ -22,15 +22,20 @@
     background-color var(--bias);
 }
 
-.root:hover,
-.root:focus {
+.root[disabled] {
+  box-shadow: 0 0 0 2px #ccc;
+  color: #ccc;
+}
+
+.root:not([disabled]):hover,
+.root:not([disabled]):focus {
   outline: none;
   background-color: #f5ffff;
   transform: translate(-1px, -1px);
   box-shadow: 1px 1px 0 2px black;
 }
 
-.root:active {
+.root:not([disabled]):active {
   outline: none;
   background-color: #f5ffff;
   transform: translate(1px, 1px);
