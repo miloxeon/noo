@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from 'assets/logo.svg'
 
 export default props => (
   <div className={ style.root } { ...props }>
-    <Logo />
+    <Logo className={ style.logo } />
     { props.children }
   </div>
 )

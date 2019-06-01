@@ -1,8 +1,18 @@
-.root {
-  display: flex;
-  align-items: center;
+.logo {
+  float: left;
+  margin-right: .25rem;
+  display: inline;
+  line-height: 1.5;
 }
 
 .root > *:nth-child(2) {
-  margin-left: .25rem;
+  display: inline-block;
+  line-height: 1.5;
+  margin: 6px 0;
+}
+
+.root > h1:nth-child(2) {
+  display: inline;
+  line-height: 1.5;
+  margin: 6px 0;
 }
