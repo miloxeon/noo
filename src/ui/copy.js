@@ -1,24 +1,16 @@
 import React, { Component, Fragment } from 'react'
-import style from './style.module.css'
-import { copy } from './logic'
-
-import Button from 'ui/button'
+import Clipboard from 'react-clipboard.js'
 import { Tooltip } from 'react-tippy'
 
-class Copy extends Component {
-  ghost = React.createRef()
-  button = React.createRef()
-  copy = copy.bind(this)
+import Button from 'ui/button'
 
+class Copy extends Component {
   state = {
     open: false
   }
 
   trigger = () => {
     this.setState(state => ({ ...state, open: true }))
-
-    this.copy()
-
     setTimeout(
       () => this.setState(state => ({ ...state, open: false })),
       1000
@@ -34,20 +26,15 @@ class Copy extends Component {
           trigger='manual'
           { ...this.state }
         >
-          <Button
-            ref={ this.button }
+          <Clipboard
             { ...this.props }
-            onClick={ this.trigger }
-            data-value={ this.props.value }
-            >
-              { this.props.children }
-            </Button>
+            component={ Button }
+            data-clipboard-text={ this.props.value }
+            onSuccess={ this.trigger }
+          >
+            { this.props.children }
+          </Clipboard>
         </Tooltip>
-        <textarea
-          hidden
-          ref={ this.ghost }
-          className={ style.ghost }
-        ></textarea>
       </Fragment>
     )
   }
