@@ -27,7 +27,7 @@ class Copy extends Component {
           { ...this.state }
         >
           <Clipboard
-            { ...this.props }
+            style={ this.props.style }
             component={ Button }
             data-clipboard-text={ this.props.value }
             onSuccess={ this.trigger }

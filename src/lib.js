@@ -33,8 +33,45 @@ export const prevent = (e, next) => {
   return next(e)
 }
 
-export const hash = (domain, secret) =>
-  keccak512(domain + secret).slice(0, 20)
+const matchAndReplace = (str, dict) => {
+  const keys = Object.keys(dict)
+  let result = str
+
+  keys.forEach(key => {
+    result = result.replace(key, dict[key])
+  })
+
+  return result
+}
+
+const capitalizeFirstFoundLetter = str => {
+  let sample = str.split('')
+
+  for (let i = 0; i < sample.length; i++) {
+    if (sample[i].toUpperCase() !== sample[i]) {
+      sample[i] = sample[i].toUpperCase()
+      return sample.join('')
+    }
+  }
+
+  return 'A' + sample.slice(0, -1).join('')
+}
+
+export const hash = (domain, secret) => {
+  const dict = {
+    '1': '[',
+    '3': '?',
+    '5': '~',
+    '8': '^',
+    '9': '&'
+  }
+
+  const originalPassword = keccak512(domain + secret).slice(0, 16)
+
+  return capitalizeFirstFoundLetter(
+    matchAndReplace(originalPassword, dict)
+  )
+}
 
 export const index = Component => (data, i) =>
   <Component { ...data } key={ i } />
