@@ -26,6 +26,9 @@ class NewDomainInput extends Component {
           </Button>
         </div>
         <h2>Add new domain</h2>
+        <p>
+          Enter the domain name here and Noo will generate the strong password for it. Change your current password to this new, strong and syncronizable one.
+        </p>
         <form onSubmit={ this.props.commit } noValidate>
           <Input
             autoFocus

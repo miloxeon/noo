@@ -12,7 +12,13 @@ const SecretInput = props => (
   <Pad padding='64px 0 0 0'>
     <h2>The secret</h2>
     <p>
-      This is the first and the last time you see your secret there. Once you enter it, there'll be no way to restore it.
+      The secret will be your master password. If you know it, you can access your passwords on any other device.
+    </p>
+    <p>
+      If you don't, there's no way to acquire it again. It can't be extracted from any of your passwords either.
+    </p>
+    <p>
+      This is the first and the last time you see your secret there. Once you enter it, there'll be no way back.
     </p>
     <form onSubmit={ props.commit }>
       <Input
