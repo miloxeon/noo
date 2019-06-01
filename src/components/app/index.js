@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { isParsable } from 'lib'
 import { connect } from 'react-redux'
 
@@ -19,13 +19,13 @@ class App extends Component {
   render () {
     return (
       <Pad>
-        <Router>
+        <BrowserRouter>
           <Switch>
             <Route exact path='/' component={ Default } />
             <Route exact path='/faq' component={ Faq } />
             <Route component={ ToHome } />
           </Switch>
-        </Router>
+        </BrowserRouter>
       </Pad>
     )
   }
