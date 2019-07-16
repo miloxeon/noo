@@ -81,11 +81,15 @@ img:not([src]) {
 
 .shake:nth-of-type(2n) {
     animation-name: shake1;
+    animation-delay: -390ms;
+    animation-duration: 640ms;
     transform-origin: 50% 10%;
 }
 
 .shake:nth-of-type(2n-1) {
     animation-name: shake2;
+    animation-delay: -180ms;
+    animation-duration: 440ms;
     transform-origin: 30% 5%;
 }
 
