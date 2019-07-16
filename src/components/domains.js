@@ -1,5 +1,5 @@
 import React from 'react'
-import { pairs, index } from 'lib'
+import { pairs, index, searchInObj } from 'lib'
 import { connect } from 'react-redux'
 
 import Grid from 'ui/grid'
@@ -15,7 +15,9 @@ Domains.displayName = 'Domains'
 
 export default connect(
   state => ({
-    domains: pairs(state.keys, 'name', 'password'),
+    domains: pairs(
+      searchInObj(state.keys, state.search),
+    'name', 'password'),
   })
 )(Domains)
 
