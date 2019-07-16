@@ -11,7 +11,10 @@ const merge = (old, current) => {
     }
   })
 
-  return result
+  return {
+    ...result,
+    version: current.version
+  }
 }
 
 export default store => next => action => {
