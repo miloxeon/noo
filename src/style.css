@@ -112,3 +112,7 @@ img:not([src]) {
 ::selection {
   background-color: #d5ffff;
 }
+
+.tiny {
+  font-size: 8px;
+}

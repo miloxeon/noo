@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { version } from 'package.alias.json'
 
 import Faq from './faq'
 import ToHome from './toHome'
@@ -25,6 +26,9 @@ class App extends Component {
             <Route component={ ToHome } />
           </Switch>
         </BrowserRouter>
+        <code className='tiny'>
+          { version }
+        </code>
       </Pad>
     )
   }
