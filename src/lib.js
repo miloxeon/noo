@@ -107,3 +107,20 @@ export const onEsc = cb => e => {
     cb()
   }
 }
+
+export const searchInObj = (obj, query) => {
+  let result = {}
+
+  Object.keys(obj).forEach(key => {
+    if (query === '' || key.includes(query)) {
+      result[key] = obj[key]
+    }
+  })
+
+  return result
+}
+
+export const dispatchByEvent = (dispatch, type) => e => dispatch({
+  type,
+  payload: e.target.value
+})
