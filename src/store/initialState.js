@@ -1,3 +1,5 @@
+import { version } from 'package.alias.json'
+
 export default {
   ui: {
     secret: '',
@@ -12,5 +14,6 @@ export default {
   secret: '',
   search: '',
   domainInputActive: false,
-  domainEditingActive: false
+  domainEditingActive: false,
+  version
 }
