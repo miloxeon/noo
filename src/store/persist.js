@@ -1,5 +1,6 @@
 import initialState from 'store/initialState'
 import { isParsable } from 'lib'
+import compare from 'semver-compare'
 
 const merge = (old, current) => {
   let result = Object.assign({}, current)
@@ -16,6 +17,15 @@ const merge = (old, current) => {
 export default store => next => action => {
   const result = next(action)
   const currentState = store.getState()
+
+  // update if needed
+  fetch('/package.alias.json').then(res => res.json()).then(({ version }) => {
+    if (compare(version, currentState.version || '0.0.1') > 0) {
+      window.location.reload(true)
+    }
+  })
+
+
   const persistedState = localStorage.getItem('noo')
 
   const mergedState = isParsable(persistedState) ?
