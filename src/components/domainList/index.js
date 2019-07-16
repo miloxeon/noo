@@ -30,7 +30,9 @@ class DomainList extends Component {
 
         <Header />
 
-        <Search />
+        { (this.props.manyDomains || this.props.searchIsNotEmpty) &&
+          <Search />
+        }
 
         { this.props.domainsExist && <Domains /> }
         { !this.props.domainsExist && <Prompt /> }
@@ -51,17 +53,21 @@ class DomainList extends Component {
 export default connect(
   state => ({
     domainsExist: pairs(state.keys, 'name', 'password').length > 0,
-    domainEditingActive: state.domainEditingActive
+    manyDomains: pairs(state.keys, 'name', 'password').length > 4,
+    domainEditingActive: state.domainEditingActive,
+    searchIsNotEmpty: state.search.length > 0
   }),
   dispatch => ({
     activateDomainInput: () => dispatch('activateDomainInput'),
-    toggleDomainEditing: () => dispatch('toggleDomainEditing'),
-    disableDomainEditing: () => dispatch('disableDomainEditing'),
+    toggleDomainEditing: () => dispatch('toggleDomainEditing')
   })
 )(DomainList)
 
 export const actions = {
   activateDomainInput: state => assoc(state, 'domainInputActive', true),
-  toggleDomainEditing: state => assoc(state, 'domainEditingActive', !state.domainEditingActive),
-  disableDomainEditing: state => assoc(state, 'domainEditingActive', false)
+  toggleDomainEditing: state => state.domainEditingActive ? ({
+    ...state,
+    domainEditingActive: false,
+    search: ''
+  }) : assoc(state, 'domainEditingActive', true)
 }
