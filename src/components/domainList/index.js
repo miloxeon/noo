@@ -30,11 +30,13 @@ class DomainList extends Component {
 
         <Header />
 
-        { (this.props.manyDomains || this.props.searchIsNotEmpty) &&
+        { this.props.domainsExist &&
+          (this.props.manyDomains || this.props.searchIsNotEmpty) &&
           <Search />
         }
 
         { this.props.domainsExist && <Domains /> }
+
         { !this.props.domainsExist && <Prompt /> }
 
         { !this.props.domainEditingActive && <Add { ...this.props } /> }
@@ -64,7 +66,11 @@ export default connect(
 )(DomainList)
 
 export const actions = {
-  activateDomainInput: state => assoc(state, 'domainInputActive', true),
+  activateDomainInput: state => ({
+    ...state,
+    domainInputActive: true,
+    search: ''
+  }),
   toggleDomainEditing: state => state.domainEditingActive ? ({
     ...state,
     domainEditingActive: false,
