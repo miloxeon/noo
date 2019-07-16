@@ -24,7 +24,9 @@ export default store => next => action => {
   // update if needed
   fetch('/package.alias.json').then(res => res.json()).then(({ version }) => {
     if (compare(version, currentState.version || '0.0.1') > 0) {
-      window.location.reload(true)
+      if (window.confirm('New version available. Update?')) {
+        window.location.reload(true)
+      }
     }
   })
 
