@@ -25,7 +25,7 @@ export const isParsable = str => {
   } catch (e) {
     return false
   }
-  return true
+  return Boolean(JSON.parse(str))
 }
 
 export const prevent = (e, next) => {

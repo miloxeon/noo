@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { isParsable } from 'lib'
 import { connect } from 'react-redux'
 
 import Faq from './faq'
@@ -37,6 +36,5 @@ export default connect(null, dispatch => ({
 
 export const actions = {
   start: state => state,
-  hydrate: (state, payload) =>
-    isParsable(payload) ? JSON.parse(payload) : state
+  hydrate: (state, payload) => payload
 }
