@@ -31,6 +31,7 @@ class Copy extends Component {
             component={ Button }
             data-clipboard-text={ this.props.value }
             onSuccess={ this.trigger }
+            title='Copy password'
           >
             { this.props.children }
           </Clipboard>

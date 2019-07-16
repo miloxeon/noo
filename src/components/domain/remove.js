@@ -9,6 +9,7 @@ export default props => (
     onClick={ props.remove }
     style={ computeStyle(props) }
     className='shake'
+    title='Remove'
   >
     <Favicon name={ props.name } />
     { props.name }
