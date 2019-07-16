@@ -11,6 +11,7 @@ import { actions as domainList } from 'components/domainList'
 import { actions as domains } from 'components/domains'
 import { actions as domain } from 'components/domain'
 import { actions as favicon } from 'components/favicon'
+import { actions as search } from 'components/search'
 import root from 'store/actions'
 
 const actions = {
@@ -22,6 +23,7 @@ const actions = {
   ...domains,
   ...domain,
   ...favicon,
+  ...search,
   ...root
 }
 

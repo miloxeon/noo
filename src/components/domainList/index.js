@@ -8,6 +8,7 @@ import Add from './add'
 import Edit from './edit'
 import Back from './back'
 
+import Search from 'components/search'
 import Domains from 'components/domains'
 
 class DomainList extends Component {
@@ -28,6 +29,8 @@ class DomainList extends Component {
       <Fragment>
 
         <Header />
+
+        <Search />
 
         { this.props.domainsExist && <Domains /> }
         { !this.props.domainsExist && <Prompt /> }
